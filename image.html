@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>image.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+<link rel="stylesheet" href="file:///Users/nakanomakoto/develop/conf/md_preview.css" type="text/css">
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/nakanomakoto/develop/conf/md_preview.css" type="text/css">
+</head>
+<body>
+<h1 id="%E7%94%BB%E9%9D%A2%E4%BB%95%E6%A7%98">画面仕様</h1>
+<h2 id="%E5%90%84%E7%94%BB%E9%9D%A2%E3%81%AE%E8%AA%AC%E6%98%8E">各画面の説明</h2>
+<h3 id="%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E7%94%BB%E9%9D%A2">ログイン画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/j8fq5f1dm6y7clz/login.jpg?dl=0" width=50%>
+<p>この画面では会員登録済みのアカウントのログイン処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>メールアドレス入力欄</li>
+<li>パスワード入力欄</li>
+<li>サインインボタン</li>
+<li>会員登録ボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>
+<p>メールアドレスとパスワードを入力してもらい、「サインインボタン」が押下された場合にログイン処理を行う。</p>
+<ul>
+<li>成功パターン：メールアドレスとパスワードが一致するアカウントがDBに存在する場合</li>
+<li>失敗パターン：
+<ul>
+<li>メールアドレスとパスワードが一致するアカウントがDBに存在しない場合</li>
+<li>メールアドレスまたはパスワードが入力されていない場合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>「会員登録ボタン」が押下された場合は会員登録画面に遷移する</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2%E7%94%BB%E9%9D%A2">会員登録画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/wm74ybmnb4c6e8p/regist_member.jpg?dl=0" width=50%>
+<p>この画面では新規アカウントの登録処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>氏名入力欄</li>
+<li>住所入力欄</li>
+<li>メールアドレス入力欄</li>
+<li>パスワード入力欄</li>
+<li>会員登録ボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>必須項目について入力してもらい、会員登録ボタンが押下された場合に登録処理を行う。
+<ul>
+<li>成功パターン：必須項目について全て入力されている場合</li>
+<li>失敗パターン：必須項目のどれか１つ以上が入力されていない場合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2%E5%AE%8C%E4%BA%86%E7%94%BB%E9%9D%A2">会員登録完了画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/wv2miwxajw8qleh/regist_member_complete.jpg?dl=0" width=50%>
+<p>この画面では新規アカウントの登録処理完了を通知します。</p>
+<p>必要な要素は以下の通りです。</p>
+<ul>
+<li>画面
+<ul>
+<li>ログインボタン</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%95%86%E5%93%81%E4%B8%80%E8%A6%A7%E6%A4%9C%E7%B4%A2%E7%94%BB%E9%9D%A2">商品一覧/検索画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/lgxwiadw2f66ej5/product_list.jpg?dl=0" width=50%>
+<p>この画面では商品の表示及び商品の検索処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>商品カテゴリ表示欄</li>
+<li>絞り込みボタン</li>
+<li>商品表示欄
+<ul>
+<li>商品名</li>
+<li>商品画像</li>
+<li>価格</li>
+</ul>
+</li>
+<li>商品名入力欄</li>
+<li>商品検索ボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>DBから入力されたジャンルの商品一覧を表示する。初期状態は全商品表示</li>
+<li>商品は1ページ10件まで</li>
+<li>「絞り込みボタン」が押下された場合、そのジャンルで絞り込んだ商品一覧が表示される。</li>
+<li>「商品検索ボタン」が押下された場合：
+<ul>
+<li>「商品名入力欄」に商品名が入力されていた場合: 入力されている商品名に部分一致する商品を検索する。</li>
+<li>「商品名入力欄」に商品名が入力されていない場合: 全件検索する。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%95%86%E5%93%81%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2">商品詳細画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/tsyja1zgeg3bsnd/product_detail.jpg?dl=0" width=50%>
+<p>この画面では商品の表示及び商品の検索処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>商品名</li>
+<li>商品画像</li>
+<li>商品価格</li>
+<li>商品の詳細説明</li>
+<li>カートに入れるボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>「カートに入れるボタン」押下時、商品をカートに追加し、カート画面に遷移する</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E3%82%AB%E3%83%BC%E3%83%88%E7%94%BB%E9%9D%A2">カート画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/2pud5mlu9ypmeac/cart.jpg?dl=0" width=50%>
+<p>この画面では商品の表示及び商品の検索処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>商品名</li>
+<li>商品画像</li>
+<li>商品価格</li>
+<li>商品の数量</li>
+<li>商品の合計価格</li>
+<li>カートから削除ボタン</li>
+<li>購入ボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>「購入ボタン」押下時、購入確認画面に遷移する</li>
+<li>「削除ボタン」押下時、カートから商品を削除する</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E8%B3%BC%E5%85%A5%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2">購入確認画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/w0bv61e4i6bjz42/purchase_confirm.jpg?dl=0" width=50%>
+<p>この画面ではカートに入れている商品の購入処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>商品名</li>
+<li>商品画像</li>
+<li>商品価格</li>
+<li>商品の数量</li>
+<li>商品の合計価格</li>
+<li>購入ボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>「購入ボタン」押下時、購入データをDBに登録し、購入番号を自動採番した上で購入完了画面に遷移する</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E8%B3%BC%E5%85%A5%E5%AE%8C%E4%BA%86%E7%94%BB%E9%9D%A2">購入完了画面</h3>
+<img src="https://dl.dropboxusercontent.com/s/ijdhk5kf542cbdj/purchase_complete.jpg?dl=0" width=50%>
+<p>この画面ではカートに入れている商品の購入処理を行います。</p>
+<p>必要な要素および処理については以下の通りです。</p>
+<ul>
+<li>
+<p>画面</p>
+<ul>
+<li>購入番号</li>
+<li>TOPへ戻るボタン</li>
+</ul>
+</li>
+<li>
+<p>処理</p>
+<ul>
+<li>自動採番された購入番号を表示する</li>
+<li>「TOPへ戻る」ボタン押下時に「商品一覧/検索画面」に遷移する</li>
+</ul>
+</li>
+</ul>
+<p><a href="index.html">TBチャレンジに戻る</a></p>
+
+</body>
+</html>
